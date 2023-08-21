@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Bivala company home page yohooo!!!</title>
+</head>
+<body>
+  <h2>
+    Bivala compnay home page YOHOOOO! - Silly Gooese
+  </h2>
+  <hr/>
+    <p>
+        User:<span sec:authentication="principal.username"></span>
+        <br/><br/>
+        Role(s): <span sec:authentication="principal.authorities"></span>
+    </p>
+  <hr/>
+  <div sec:authorize="hasRole('MANAGER')">
+      <p>
+          <a th:href="@{/leaders}">Leadership Meeting</a>
+          (only for Manager peeps)
+      </p>
+      <hr/>
+  </div>
+  <div sec:authorize="hasRole('ADMIN')">
+      <p>
+          <a th:href="@{/systems}">IT Systems Meeting</a>
+          (only for Admin peeps)
+      </p>
+      <hr/>
+  </div>
+    <p>Welcome to bivala company home page</p>
+    <form th:action="@{/logout}" action="#" method="POST">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>

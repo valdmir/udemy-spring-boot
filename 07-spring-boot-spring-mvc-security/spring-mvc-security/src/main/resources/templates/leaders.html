@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Bivala LEaders home page </title>
+</head>
+<body>
+  <h2>
+   LEader pleases
+  </h2>
+  <p>
+      <a th:href="@{/leaders}">Leadership Meeting</a>
+      (only for Manager peeps
+  </p>
+  <hr/>
+  <p>
+      See you in Bali!!!!
+  </p>
+  <p>RAHASIA!!!</p>
+  <hr/>
+  <a th:href="@{/}">
+    Back to home page
+  </a>
+  <hr/>
+    <form th:action="@{/logout}" action="#" method="POST">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>
